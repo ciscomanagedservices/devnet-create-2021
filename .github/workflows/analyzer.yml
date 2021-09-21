@@ -38,8 +38,7 @@ jobs:
         id: analyzer-run
         uses: fjogeleit/http-request-action@master
         with:
-          url: "https://raw.githubusercontent.com/ciscomanagedservices/sxo-analyzer/
-          /.github/analyzer_run.js"
+          url: "https://raw.githubusercontent.com/ciscomanagedservices/sxo-analyzer/main/.github/analyzer_run.js"
           method: 'GET'
 
       - name: Write analyzer-run
