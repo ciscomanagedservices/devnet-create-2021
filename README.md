@@ -16,7 +16,7 @@ There are **three** branches in this repository:
         > For original code & documentation, please visit [ciscomanagedservices/sxo-utilities](https://github.com/ciscomanagedservices/sxo-utilities) & review the section on "Oversight"
         1. [(With Error) Hello DevNet Create!](/04-WithError-HelloDevNetCreate__definition_workflow_01RHRLZAY87LA06dyNiURM5Dmfrdeb9MxfS/): Added `/garbage` to the 'Relative URL' of the web service request activity to introduce an intential failure
         2. [(Error Handler) Hello DevNet Create!](/05-ErrorHandler-HelloDevNetCreate__definition_workflow_01RGW22SQVLYI4XiZljNv8KMmxVRdh5zhPV/): A simple workflow to notify via a text to a Webex space when an error occurs
-    4. [Import from GitHub](): A workflow that triggers off notifications of new commits to the `prod` branch and pulls down the committed workflow into the Org. 
+    4. [Import from GitHub](/06-ImportFromGitHub__definition_workflow_01R8FL4PGG7AT69i8rPD2vtpJPVi0ByVMI8/): A workflow that triggers off notifications of new commits to the `prod` branch and pulls down the committed workflow into the Org. 
 
         > Please note that this workflow is intentionally limited for demonstration purposes & may not import all workflow dependencies. 'Watch' the [ciscomanagedservices/sxo-utilities](https://github.com/ciscomanagedservices/sxo-utilities) repository to be notified when this workflow supports additional capabilities.
 2. `dev`: This branch contains the Dev workflow (a copy of the "[Hello DevNet Create!]()" workflow) & GitHub Actions ([AutoDoc](https://github.com/ciscomanagedservices/sxo-autodoc) & [Analyzer](https://github.com/ciscomanagedservices/sxo-analyzer)) used to demonstrate Continuous Integration & Deployment (CI/CD).
