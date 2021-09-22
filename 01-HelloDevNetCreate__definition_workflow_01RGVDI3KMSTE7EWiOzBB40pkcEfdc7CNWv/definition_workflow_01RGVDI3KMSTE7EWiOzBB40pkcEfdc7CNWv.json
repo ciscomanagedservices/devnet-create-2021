@@ -25,7 +25,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "description": "This is a sample workflow that hits an API server that returns a JSON response with a number of fake 'user' objects with their metadata, parses that response to extract 'names' of users, and sets a list of those 'names' in the workflow's output variable.",
+      "description": "This is a sample workflow that hits an API server that returns a JSON response with a number of fake 'user' objects with their metadata, parses that response to extract 'names' of users, and sets a list of those 'names' in the workflow's output variable. \n\n\u003e **This** text was written within SecureX Orchestration's Workflow Editor in the 'Description' field. However, since this workflow is being committed to the Dev Branch that has our [AutoDoc](https://github.com/ciscomanagedservices/sxo-autodoc) GitHub Action setup, you're going to be able to see this description in the branch's README automatically!",
       "display_name": "Hello DevNet Create!",
       "runtime_user": {
         "target_default": true
