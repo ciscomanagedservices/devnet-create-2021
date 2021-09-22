@@ -1,0 +1,142 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01RHRLZAY87LA06dyNiURM5Dmfrdeb9MxfS",
+    "name": "(With Error) Hello DevNet Create!",
+    "title": "(With Error) Hello DevNet Create!",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Output Variable",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01RHRLZAQRP7944SXI8JmiQZs5E4A4z55Bf",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This is a sample workflow that hits an API server that returns a JSON response with a number of fake 'user' objects with their metadata, parses that response to extract 'names' of users, and sets a list of those 'names' in the workflow's output variable.",
+      "display_name": "(With Error) Hello DevNet Create!",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01RGVG9IVTU3465bEJzeXdy0YLptGVY9ILk",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01RHRLZMMXGCZ3Hjj8R2Lu0Ad6stClULtcG",
+        "name": "HTTP Request",
+        "title": "GET /users",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "accept": "application/json",
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "GET /users",
+          "method": "GET",
+          "relative_url": "/garbage",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RHRLZRD4Z857coiN0n1p91BR4khqDFAtW",
+        "name": "JSONPath Query",
+        "title": "Parse Response",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Parse Response",
+          "input_json": "$activity.definition_activity_01RHRLZMMXGCZ3Hjj8R2Lu0Ad6stClULtcG.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..name",
+              "jsonpath_query_name": "Names",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RHRLZWFGASK0CWSJddyh95I8EQMCT8S9n",
+        "name": "Set Variables",
+        "title": "Set Output Variable",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Output Variable",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01RHRLZAY87LA06dyNiURM5Dmfrdeb9MxfS.output.variable_workflow_01RHRLZAQRP7944SXI8JmiQZs5E4A4z55Bf$",
+              "variable_value_new": "$activity.definition_activity_01RHRLZRD4Z857coiN0n1p91BR4khqDFAtW.output.jsonpath_queries.Names$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01RGW0WUHB4Z67E7YFNWYVjfu8GmXSGHb2F"
+    ]
+  },
+  "categories": {
+    "category_01RGW0WUHB4Z67E7YFNWYVjfu8GmXSGHb2F": {
+      "unique_name": "category_01RGW0WUHB4Z67E7YFNWYVjfu8GmXSGHb2F",
+      "name": "DevNet Create",
+      "title": "DevNet Create",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "targets": {
+    "definition_target_01RGVG9IVTU3465bEJzeXdy0YLptGVY9ILk": {
+      "unique_name": "definition_target_01RGVG9IVTU3465bEJzeXdy0YLptGVY9ILk",
+      "name": "JSON Placeholder API Server",
+      "title": "JSON Placeholder API Server",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "JSON Placeholder API Server",
+        "host": "jsonplaceholder.typicode.com",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "path": "/users",
+        "protocol": "https"
+      }
+    }
+  }
+}
