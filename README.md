@@ -1,6 +1,6 @@
 ## DevNet Create 2021 - LT06: Building Stability, Performance &amp; Scale into SecureX Orchestration Workflows
 
-[About DevNet Create 2021](https://developer.cisco.com/devnetcreate/2021) | [**Link to Session Presentation**](https://github.com/ciscomanagedservices/devnet-create-2021/raw/main/00-DVNT21-LT06.ppsx)
+[About DevNet Create 2021](https://developer.cisco.com/devnetcreate/2021) | [**Link to Session Presentation**](https://github.com/ciscomanagedservices/devnet-create-2021/raw/main/00-DVNT21-LT06.ppsx) | [**Link to Session Recording**](https://www.youtube.com/watch?v=jDivvicnzog) 
 
 There are **three** branches in this repository:
 
